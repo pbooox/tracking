@@ -32,5 +32,5 @@ class Shipment(TrackingModel):
         """Return shipment."""
         return "@{}'s shipment. #{}".format(
             self.user.username,
-            self.shipment.pk,
+            self.pk
         )

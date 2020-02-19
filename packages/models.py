@@ -15,7 +15,7 @@ class Package(TrackingModel):
 
     def __str__(self):
         """Return Package pk."""
-        return self.pk
+        return str(self.pk)
 
     class Meta:
         """Meta class."""

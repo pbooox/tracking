@@ -28,6 +28,7 @@ from users.models import User
 
 class UserViewSet(mixins.RetrieveModelMixin,
                   mixins.UpdateModelMixin,
+                  mixins.ListModelMixin,
                   viewsets.GenericViewSet):
     """User view set.
 
@@ -42,7 +43,7 @@ class UserViewSet(mixins.RetrieveModelMixin,
         """Assign permissions based on action."""
         if self.action in ['signup', 'login']:
             permissions = [AllowAny]
-        elif self.action in ['retrieve', 'update', 'partial_update']:
+        elif self.action in ['retrieve', 'update', 'partial_update', 'list']:
             permissions = [IsAuthenticated, IsAdmin]
         else:
             permissions = [IsAuthenticated]
